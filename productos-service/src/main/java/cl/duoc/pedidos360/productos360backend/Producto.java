@@ -1,3 +1,4 @@
+
 package cl.duoc.pedidos360.productos360backend;
 
 import jakarta.persistence.Entity;
@@ -14,6 +15,9 @@ public class Producto {
 
     private String nombre;
     private Integer precio;
+    private String categoria;
+    private String descripcion;
+    private String imagen;
 
     public Producto() {
     }
@@ -40,5 +44,29 @@ public class Producto {
 
     public void setPrecio(Integer precio) {
         this.precio = precio;
+    }
+
+    public String getCategoria() {
+        return categoria;
+    }
+
+    public void setCategoria(String categoria) {
+        this.categoria = categoria;
+    }
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
+
+    public String getImagen() {
+        return imagen;
+    }
+
+    public void setImagen(String imagen) {
+        this.imagen = imagen;
     }
 }

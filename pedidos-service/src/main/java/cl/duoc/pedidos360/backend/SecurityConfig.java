@@ -1,3 +1,4 @@
+
 package cl.duoc.pedidos360.backend;
 
 import java.util.List;
@@ -5,6 +6,7 @@ import java.util.List;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.oauth2.core.DelegatingOAuth2TokenValidator;
 import org.springframework.security.oauth2.core.OAuth2TokenValidator;
 import org.springframework.security.oauth2.jwt.Jwt;
@@ -30,9 +32,10 @@ public class SecurityConfig {
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
+            .csrf(AbstractHttpConfigurer::disable)
             .cors(cors -> cors.configurationSource(corsConfigurationSource()))
             .authorizeHttpRequests(auth -> auth
-                .requestMatchers("/api/pedidos/**")
+                .requestMatchers("/api/pedidos", "/api/pedidos/**")
                     .hasAuthority("SCOPE_access_as_user")
                 .anyRequest().authenticated()
             )
@@ -77,6 +80,7 @@ public class SecurityConfig {
         configuration.setAllowedOrigins(
             List.of(
                 "http://localhost:4200",
+                "http://localhost:51402",
                 "https://main.d3bt5cmjg03poo.amplifyapp.com"
             )
         );

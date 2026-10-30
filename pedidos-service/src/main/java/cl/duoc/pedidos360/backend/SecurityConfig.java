@@ -81,7 +81,8 @@ public class SecurityConfig {
             List.of(
                 "http://localhost:4200",
                 "http://localhost:51402",
-                "https://main.d3bt5cmjg03poo.amplifyapp.com"
+                "https://main.d3bt5cmjg03poo.amplifyapp.com",
+                "https://master.d3bt5cmjg03poo.amplifyapp.com"
             )
         );
 
